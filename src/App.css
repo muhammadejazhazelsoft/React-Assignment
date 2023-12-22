@@ -1,0 +1,60 @@
+*{
+  padding: 0;margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Inter', sans-serif;
+}
+.circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: gray;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.InfomationDiv {
+  background-color: gray;
+  width: 100%;
+  border: 1px solid blueviolet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.InputForm{
+  max-width: 225px;
+  height: auto;
+  background-color: rgb(157, 157, 248);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 12px 20px;
+  gap: 10px;
+  border-radius: 8px;
+}
+input{
+  border: none;
+  border-radius: 8px;
+  height: 35px;
+padding-left: 10px;
+}
+
+.SubmitBtn{
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: rgb(255, 255, 255);
+  background-color: blueviolet;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.SubmitBtn:hover{
+  background-color: rgb(255, 255, 255);
+  color: blueviolet;
+}

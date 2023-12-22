@@ -1,0 +1,134 @@
+*{
+    padding: 0;margin: 0;box-sizing: border-box;
+}
+
+.landingPageContainer{
+    background-color: #f1f5f9!important;
+    /* min-height: 408px; */
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   padding-bottom: 50px;
+}
+
+
+.UpperLandingPortion{
+     background-color: #754ffe!important;
+}
+.ln-litter{
+    line-height: 1.6;
+    letter-spacing: -.03rem;
+}
+.btnSize{
+    padding: 8px 16px !important;
+    color: white !important;
+    background-color: #0f172a !important;
+    font-weight: 600  !important;
+    font-family: 'Inter', sans-serif !important;
+    border: 1px solid #272e3f;
+    line-height: 1.6 !important;
+    border-radius: 6px !important;
+}
+del{
+    font-size: 12px;
+    padding-top: 1px;
+}
+.btnSizee{
+    padding: 8px 16px !important;
+    font-weight: 600  !important;
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.6 !important;
+    border-radius: 6px !important;
+}
+.insBtn{
+    padding: 8px 16px !important;
+    font-weight: 600  !important;
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.6 !important;
+    border-radius: 6px !important;
+}
+.innerDiv{
+    max-width: 960px;
+    width: 100%;
+    margin: auto;
+}
+
+.welcomeGeekPara{
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: -.05rem;
+    margin-bottom: 0.5rem;
+}
+.informationDiv{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.lead{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.IconBox{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #ffeeda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .onlineCources{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.onlineCourcess{
+    padding-right: 0px;
+} */
+.upperPara{
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 0;
+}
+.EnjoyPara{
+    color: #64748b;
+    font-weight: 400;
+    font-size: 0.875rem;
+    list-style: 1.6
+}
+.iconColor{
+    color:#c28135;
+}
+
+.highlightPara{
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.5;
+}
+.RecommendedForYouDiv{
+    padding-top: 88px;
+    padding-bottom: 16px;
+    background-color: #f1f5f9;
+}
+.MostPopularDiv{
+    padding-top: 88px;
+    padding-bottom: 16px;
+    background-color: #f1f5f9;
+}
+.TrendingDiv{
+    padding-top: 88px;
+    padding-bottom: 16px;
+    background-color: #f1f5f9;
+}
+@media (max-width: 991px) {
+.imgDiv img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain; 
+}
+
+}
+

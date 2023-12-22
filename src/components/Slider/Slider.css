@@ -1,0 +1,124 @@
+
+.fs-size{
+  font-size: 14px;
+}
+.card-title-text{
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.slick-prev,
+.slick-next {
+  background-color:white!important;
+  border: 1px solid rgb(241, 237, 237);
+  border-radius: 50%;
+  color: yellow;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -2%;
+  margin-right: -2%;
+  text-align: center;
+  transition: .2s ease-in;
+  width: 40px;
+}
+
+.slick-next::before {
+  content: '\2192';
+  font-family: Arial, sans-serif;
+  font-size: 20px; 
+  font-weight: bold; 
+  color: rgb(185, 185, 185);
+  left: 22%;
+  position: absolute;
+  top: 20%;
+}
+.slick-prev::before {
+  content: '\2190';
+  font-family: Arial, sans-serif; 
+  font-size: 20px; 
+  font-weight: bold; 
+  color: rgb(185, 185, 185);
+    left: 22%;
+    position: absolute;
+    top: 20%;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: #6f42c1 !important;
+}
+.slick-prev:hover::before,
+.slick-next:hover::before {
+  color: white !important; 
+}
+
+.slide-item {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .card {
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+    transition: box-shadow 0.3s ease !important; 
+  }
+
+  .CardLi{
+    color: #64748b !important;
+    margin-right: 10px;
+
+  }
+  .CardLiiconColor{
+    color: #64748b !important;
+    margin-right: 6px;
+  }
+  .cardFooterImg{
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+  }
+  .card-body{
+    padding: 1.5rem !important;
+  }
+
+  @media (max-width: 1030px) {
+
+    .slick-next {
+      top: 110%;
+right: 40px;
+    }
+    .slick-prev{
+      top: 110%;
+left: 40px;
+    }
+
+}
+
+@media (max-width: 480px) {
+  .slick-next {
+top: 110%;
+right: 40px;
+  }
+  .slick-prev{
+    top: 110%;
+left: 40px;
+  }
+
+}
+@media (max-width: 375px) {
+  .slick-next {
+    top: 110%;
+right: 40px;
+  }
+  .slick-prev{
+    top: 110%;
+left: 40px;
+  }
+
+}
+
