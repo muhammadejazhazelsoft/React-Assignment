@@ -1,23 +1,47 @@
-*{
-    padding: 0;margin: 0;box-sizing: border-box;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.FormDiv{
+
+.FormDiv {
     max-width: 360px;
     width: 100%;
     margin: auto;
     border: 1px solid rgb(179, 177, 177);
     padding: 25px;
     border-radius: 8px;
+    width: 400px;
+    background-color: #3990FF;
+    border-radius: 10px;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.42);
 
 }
-.container{
+
+.FormDiv h1 {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin:0px 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+    font-family: Magmawave Caps;
+    color: white;
+}
+
+.container {
     height: 100vh !important;
 
 }
-.LoginContainer{
+
+.LoginContainer {
     display: flex;
     align-items: center;
     height: 100vh !important;
     justify-content: center;
     background-color: rgb(224, 224, 224);
+    background-image: url('/public/newImage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
 }

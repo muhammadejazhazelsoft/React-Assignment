@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBDataTable } from 'mdbreact';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsersData } from '../../features/DataFile';
+import ToastifyServices from '../../Services/ToastifyServices';
 
 const DatatablePage = () => {
  const dispatch= useDispatch()
@@ -14,14 +15,11 @@ const DatatablePage = () => {
   });
 
   const handleDelete = (userId) => {
-    // Implement delete functionality here using the userId
-    // For example, dispatch an action to delete the user
-    // dispatch(deleteUserAction(userId));
     const filterUsers = UserRegister.filter((user) => {
       return user.id !== userId
     })
-    console.log(`Delete user with ID: ${userId} ${filterUsers}`);
     dispatch(setUsersData(filterUsers))
+    ToastifyServices.showSuccess('User Deleted Successfully')
   };
 
   const data = {
@@ -51,7 +49,7 @@ const DatatablePage = () => {
         width: 100
       },
       {
-        label: 'Delete',
+        label: 'Action',
         field: 'deleteButton',
         width: 100
       }

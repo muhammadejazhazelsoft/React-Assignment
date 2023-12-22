@@ -6,22 +6,23 @@
 
 .LandingPage {
     width: 100%;
-    display: grid;
-    grid-template-columns: 300px 1fr;
+    display: flex;
 }
 
-.table {
+.main-content {
     padding: 30px;
+    flex: 1;
+    
 }
 
-.ModalFOrm {
+/* .ModalFOrm {
     background-color: rgb(165, 165, 165);
-}
+} */
 
-@media (max-width: 1040px) {
+/* @media (max-width: 1040px) {
     .LandingPage {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
     }
-}
+} */

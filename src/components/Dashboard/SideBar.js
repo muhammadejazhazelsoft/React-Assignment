@@ -1,102 +1,48 @@
 import React from 'react';
 import {
-  CDBBadge,
   CDBSidebar,
-  CDBSidebarContent,
-  CDBSidebarFooter,
   CDBSidebarHeader,
-  CDBSidebarMenu,
   CDBSidebarMenuItem,
+  CDBSidebarContent,
+  CDBSidebarMenu,
   CDBSidebarSubMenu,
-} from 'cdbreact-pro';
-import { NavLink } from 'react-router-dom';
+  CDBSidebarFooter,
+  CDBBadge,
+  CDBContainer,
+} from 'cdbreact';
+import { setLoggedIn } from '../../features/DataFile';
+import { useDispatch } from 'react-redux';
 
-const Sidebar = () => {
+const Sidebar = ({onItemClick}) => {
+  const dispatch=useDispatch()
+  const logout = () => {
+    // Assuming you stored an item in Local Storage with a key named 'myItem'
+    dispatch(setLoggedIn(false))
+
+  }
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="#fff" backgroundColor="#333">
-        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-            Sidebar
-          </a>
-        </CDBSidebarHeader>
-
-        <CDBSidebarContent>
-          <CDBSidebarMenu>
-            <CDBSidebarMenuItem
-              suffix={
-                <CDBBadge color="danger" size="small" borderType="pill">
-                  new
-                </CDBBadge>
-              }
-              icon="th-large"
-            >
-              Dashboard
-            </CDBSidebarMenuItem>
-            <CDBSidebarMenuItem
-              icon="sticky-note"
-              suffix={
-                <CDBBadge color="danger" size="small" borderType="pill">
-                  new
-                </CDBBadge>
-              }
-            >
-              Components
-            </CDBSidebarMenuItem>
-          </CDBSidebarMenu>
-          <CDBSidebarMenu>
-            <CDBSidebarSubMenu title="Sidemenu" icon="th">
-              <NavLink exact to="/sub1" activeClassName="activeClicked">
-                <CDBSidebarMenuItem>submenu 1</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="/sub2" activeClassName="activeClicked">
-                <CDBSidebarMenuItem>submenu 2</CDBSidebarMenuItem>
-              </NavLink>
-              <NavLink exact to="/sub3" activeClassName="activeClicked">
-                <CDBSidebarMenuItem>submenu 3</CDBSidebarMenuItem>
-              </NavLink>
-            </CDBSidebarSubMenu>
-            <CDBSidebarSubMenu
-              title="Sidemenu2"
-              icon="book"
-              suffix={
-                <CDBBadge color="danger" size="small" borderType="pill">
-                  new
-                </CDBBadge>
-              }
-            >
-              <CDBSidebarMenuItem>submenu 1</CDBSidebarMenuItem>
-              <CDBSidebarMenuItem>submenu 2</CDBSidebarMenuItem>
-              <CDBSidebarMenuItem>submenu 3</CDBSidebarMenuItem>
-            </CDBSidebarSubMenu>
-            <CDBSidebarSubMenu title="MultiLevel with Icon" icon="table">
-              <CDBSidebarMenuItem>submenu 1 </CDBSidebarMenuItem>
-              <CDBSidebarMenuItem>submenu 2 </CDBSidebarMenuItem>
-              <CDBSidebarSubMenu title="submenu 3">
-                <CDBSidebarMenuItem>submenu 3.1 </CDBSidebarMenuItem>
-                <CDBSidebarMenuItem>submenu 3.2 </CDBSidebarMenuItem>
-                <CDBSidebarSubMenu title="subnet">
-                  <CDBSidebarMenuItem>submenu 3.3.1 </CDBSidebarMenuItem>
-                  <CDBSidebarMenuItem>submenu 3.3.2 </CDBSidebarMenuItem>
-                  <CDBSidebarMenuItem>submenu 3.3.3 </CDBSidebarMenuItem>
-                </CDBSidebarSubMenu>
-              </CDBSidebarSubMenu>
-            </CDBSidebarSubMenu>
-          </CDBSidebarMenu>
-        </CDBSidebarContent>
-
-        <CDBSidebarFooter style={{ textAlign: 'center' }}>
-          <div
-            style={{
-              padding: '20px 5px',
-            }}
-          >
-            Sidebar Footer
-          </div>
-        </CDBSidebarFooter>
-      </CDBSidebar>
-    </div>
-  );
+    <CDBSidebar textColor="#333" backgroundColor="#f0f0f0">
+      <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center' }}>
+          <img
+            src={'https://seeklogo.com/images/B/butterfly-logo-0A00378822-seeklogo.com.png'}
+            alt=""
+            style={{ width: '30px' }}
+          />
+          <h6 className="ms-2">BABYCARE ™</h6>
+        </div>
+      </CDBSidebarHeader>
+      <CDBSidebarContent>
+        <CDBSidebarMenu>
+          <CDBSidebarMenuItem onClick={() => onItemClick('dashboard')} icon="th-large">Dashboard</CDBSidebarMenuItem>
+          <CDBSidebarMenuItem onClick={() => onItemClick('profile')} icon="sticky-note">Profile</CDBSidebarMenuItem>
+          <CDBSidebarMenuItem onClick={logout} icon="chart-line" iconType="solid">
+            Logout
+          </CDBSidebarMenuItem>
+        </CDBSidebarMenu>
+      </CDBSidebarContent>
+    </CDBSidebar>
+  )
 };
 
 export default Sidebar;
