@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.LandingPage {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.table {
+    padding: 30px;
+}
+
+.ModalFOrm {
+    background-color: rgb(165, 165, 165);
+}
+
+@media (max-width: 1040px) {
+    .LandingPage {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

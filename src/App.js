@@ -1,21 +1,19 @@
 
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import LandingPage from './components/LandingPage/LandingPage';
-import Footer from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SecondPage from './components/SecondPage/SecondPage';
+import Login from './components/Login/Login';
+import Dashboard from './components/Dashboard/Dashboard';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar />
+      <ToastContainer />
         <Routes>
-          <Route path='/' element={  <LandingPage />}></Route>
-          <Route path='/secondpage' element={  <SecondPage />}></Route>
+          <Route path='/' element={  <Login />}></Route>
+          <Route path='/dashboard' element={  <Dashboard />}></Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
     </div>
   );

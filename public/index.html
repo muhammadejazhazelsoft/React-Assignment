@@ -19,62 +19,31 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
-  
-  <!-- choose one -->
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+
+
+
+
+          <!-- Bootstrap 5 CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<!-- Data Table CSS -->
+<link rel='stylesheet' href='https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css'>
+<!-- Font Awesome CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+ 
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll('.dropdown-menu').forEach(function (element) {
-        element.addEventListener('click', function (e) {
-          e.stopPropagation();
-        });
-      })
-
-      if (window.innerWidth < 992) {
-        document.querySelectorAll('.navbar .dropdown').forEach(function (everydropdown) {
-          everydropdown.addEventListener('hidden.bs.dropdown', function () {
-            this.querySelectorAll('.submenu').forEach(function (everysubmenu) {
-              everysubmenu.style.display = 'none';
-            });
-          })
-        });
-
-        document.querySelectorAll('.dropdown-menu a').forEach(function (element) {
-          element.addEventListener('click', function (e) {
-            let nextEl = this.nextElementSibling;
-            if (nextEl && nextEl.classList.contains('submenu')) {
-              e.preventDefault();
-              console.log(nextEl);
-              if (nextEl.style.display == 'block') {
-                nextEl.style.display = 'none';
-              } else {
-                nextEl.style.display = 'block';
-              }
-            }
-          });
-        })
-      }
-    }); 
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <script src='https://code.jquery.com/jquery-3.7.0.js'></script>
+  <!-- Data Table JS -->
+  <script src='https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js'></script>
+  <script src='https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js'></script>
+  <script src='https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js'></script>
+        <!-- Script JS -->
+        <script src="./js/script.js"></script>
 </body>
 
 </html>

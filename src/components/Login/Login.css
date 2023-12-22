@@ -1,0 +1,23 @@
+*{
+    padding: 0;margin: 0;box-sizing: border-box;
+}
+.FormDiv{
+    max-width: 360px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid rgb(179, 177, 177);
+    padding: 25px;
+    border-radius: 8px;
+
+}
+.container{
+    height: 100vh !important;
+
+}
+.LoginContainer{
+    display: flex;
+    align-items: center;
+    height: 100vh !important;
+    justify-content: center;
+    background-color: rgb(224, 224, 224);
+}
