@@ -15,8 +15,7 @@ const Login = () => {
         if (!password || !mail) {
             ToastifyServices.showError("Both fields are required!")
             return;
-          }
-        // 4. Email validation
+        }
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if (!emailRegex.test(mail)) {
             ToastifyServices.showError("Please enter a valid email address.")
@@ -24,11 +23,10 @@ const Login = () => {
         }
 
         const foundUser = UserRegister.find((user) => {
-            return mail === user.userEmail && password === user.userPassword;
+            return mail.toLowerCase() === user.userEmail.toLowerCase() && password === user.userPassword;
         });
 
         if (foundUser) {
-            // Store user data in localStorage
             localStorage.setItem('userData', JSON.stringify(foundUser));
             dispatch(setLoggedIn(true))
             ToastifyServices.showSuccess('Successfully Login')
@@ -47,7 +45,7 @@ const Login = () => {
                     <h1>Login</h1>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
-                        <input  placeholder="Example@gmail.com" type="email" value={mail} onChange={(e) => { setMail(e.target.value) }} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <input placeholder="Example@gmail.com" type="email" value={mail} onChange={(e) => { setMail(e.target.value) }} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                         <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-4">

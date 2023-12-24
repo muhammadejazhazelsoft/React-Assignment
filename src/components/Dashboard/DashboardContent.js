@@ -20,10 +20,24 @@ const DashboardContent = () => {
             ToastifyServices.showError("Both fields are required!")
             return;
         }
+        // Username validation
+        const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/;
+        if (!usernameRegex.test(name)) {
+            ToastifyServices.showError("Please enter a valid username: 3-16 characters, alphanumeric characters, underscores, or hyphens.");
+            return;
+        }
+
+
         // 4. Email validation
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if (!emailRegex.test(mail)) {
             ToastifyServices.showError("Please enter a valid email address.")
+            return;
+        }
+        // Password validation
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password)) {
+            ToastifyServices.showError("Please enter a valid password: at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.");
             return;
         }
         const id = (Math.random() * 11).toFixed(2);
@@ -63,7 +77,7 @@ const DashboardContent = () => {
                     >
                         <Box sx={{ display: 'flex' }}>
                             <form className='FormDiv ModalFOrm'>
-                            <h1>Add User</h1>
+                                <h1>Add User</h1>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label text-white">Name</label>
                                     <input placeholder='User Name' type="email" value={name} onChange={(e) => { setName(e.target.value) }} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
