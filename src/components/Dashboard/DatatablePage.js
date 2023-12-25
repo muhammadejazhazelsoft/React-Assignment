@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBDataTable } from 'mdbreact';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsersData } from '../../features/DataFile';
+import { setUsersData } from '../../Slice/DataFile';
 import ToastifyServices from '../../Services/ToastifyServices';
 
 const DatatablePage = () => {
@@ -24,12 +24,12 @@ const DatatablePage = () => {
 
   const data = {
     columns: [
-      {
-        label: 'id',
-        field: 'id',
-        sort: 'asc',
-        width: 150
-      },
+      // {
+      //   label: 'id',
+      //   field: 'id',
+      //   sort: 'asc',
+      //   width: 150
+      // },
       {
         label: 'userName',
         field: 'userName',

@@ -23,7 +23,7 @@ const initialState = {
             userPassword: 'ejazejaz'
         },
     ], 
-    LoggedIn: false
+    isLoggedIn: false
 };
 
 const UserDataSlice = createSlice({
@@ -34,21 +34,17 @@ const UserDataSlice = createSlice({
         setUsersData: (state, action) => {
             state.UsersData = action.payload;
         },
-        setLoggedIn: (state, action) => {
-            state.LoggedIn = action.payload;
+        setIsLoggedIn: (state, action) => {
+            state.isLoggedIn = action.payload;
         },
+        logout: (state) => {
+            state.isLoggedIn = false; // Set isLoggedIn to false
+          },
+        
     },
 });
-// const UserDataSlice = createSlice({
-//     name: "app",
-//     initialState,
-//     reducers: {
-//         setUsersData: (state, action) => {
-//             state.UsersData = [...state.UsersData, ...action.payload];
-//         },
-//     },
-// });
 
-export const { setUsersData, setLoggedIn } = UserDataSlice.actions;
+
+export const { setUsersData, setIsLoggedIn,logout } = UserDataSlice.actions;
 
 export default UserDataSlice.reducer;

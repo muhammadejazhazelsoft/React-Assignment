@@ -3,7 +3,8 @@ import DatatablePage from './DatatablePage';
 import Box from '@mui/material/Box';
 import ToastifyServices from '../../Services/ToastifyServices';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsersData } from '../../features/DataFile';
+import { setIsLoggedIn, setUsersData } from '../../Slice/DataFile';
+import { v4 as uuidv4 } from 'uuid';
 const DashboardContent = () => {
     const [name, setName] = useState("")
     const [mail, setMail] = useState("")
@@ -40,9 +41,8 @@ const DashboardContent = () => {
             ToastifyServices.showError("Please enter a valid password: at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.");
             return;
         }
-        const id = (Math.random() * 11).toFixed(2);
         const newUser = {
-            id: id,
+            id: uuidv4(),
             userName: name,
             userEmail: mail,
             userPassword: password
@@ -54,8 +54,14 @@ const DashboardContent = () => {
         setPassword('')
         setName('')
     };
+
+
+
+
+
     return (
         <div>
+            <h1 className='pb-5 d-flex justify-content-center'> REGISTERED USERS TABLE</h1>
             <DatatablePage />
             <button className='btn btn-primary' onClick={() => { setModalOpen(true) }}> Add New User</button>
             {
@@ -91,9 +97,9 @@ const DashboardContent = () => {
                                     <label for="exampleInputPassword1" class="form-label text-white">Password</label>
                                     <input placeholder='Password' type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} class="form-control" id="exampleInputPassword1" />
                                 </div>
-                                <div className="d-flex justify-content-center">
-                                    <button onClick={CreateUserAccount} className="btn btn-dark me-3">Submit</button>
-                                    <button onClick={closeModal} className="btn btn-dark">Cancel</button>
+                                <div className="d-flex ">
+                                    <button onClick={CreateUserAccount} className="btn btn-dark me-3 w-100">Submit</button>
+                                    <button onClick={closeModal} className="btn btn-dark w-100">Cancel</button>
                                 </div>
                             </form>
                         </Box>

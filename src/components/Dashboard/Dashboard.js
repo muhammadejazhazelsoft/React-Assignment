@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react'
 import './Dashboard.css'
-import { useNavigate } from 'react-router-dom';
 import Sidebar from './SideBar';
 import DashboardContent from './DashboardContent';
 import ProfileContent from './ProfileContent';
 const Dashboard = () => {
-    const [selectedComponent, setSelectedComponent] = useState('dashboard'); // Default component
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const LoggedIn = useSelector(state => state.UserRegister.LoggedIn);
+    const [selectedComponent, setSelectedComponent] = useState('dashboard');
     const handleSidebarItemClick = (componentName) => {
         setSelectedComponent(componentName);
       };
-    useEffect(() => {
-        // const user = JSON.parse(localStorage.getItem('userData'));
-        if (!LoggedIn) {
-            navigate('/');
-        }
-    }, [LoggedIn])
+
     const renderContent = () => {
         switch (selectedComponent) {
             case 'dashboard':

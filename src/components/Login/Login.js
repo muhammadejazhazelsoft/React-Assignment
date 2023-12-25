@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Login.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ToastifyServices from '../../Services/ToastifyServices';
-import { setLoggedIn } from '../../features/DataFile';
+import { setIsLoggedIn } from '../../Slice/DataFile';
 const Login = () => {
     const [mail, setMail] = useState("")
     const [password, setPassword] = useState("")
     const UserRegister = useSelector(state => state.UserRegister.UsersData);
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const onSubmitForm = (e) => {
-        e.preventDefault();
+    const Login = (e) => {
+     
         if (!password || !mail) {
             ToastifyServices.showError("Both fields are required!")
             return;
@@ -22,20 +22,36 @@ const Login = () => {
             return;
         }
 
-        const foundUser = UserRegister.find((user) => {
-            return mail.toLowerCase() === user.userEmail.toLowerCase() && password === user.userPassword;
-        });
+        try {
+            const foundUser = UserRegister.find((user) => {
+                return mail.toLowerCase() === user.userEmail.toLowerCase() && password === user.userPassword;
+            });
 
-        if (foundUser) {
-            localStorage.setItem('userData', JSON.stringify(foundUser));
-            dispatch(setLoggedIn(true))
-            ToastifyServices.showSuccess('Successfully Login')
-            navigate('/dashboard');
-        } else {
-            ToastifyServices.showError('Invalid credentials')
+            if (foundUser) {
+                localStorage.setItem('userData', JSON.stringify(foundUser));
+                dispatch(setIsLoggedIn(true));
+                ToastifyServices.showSuccess('Successfully Login');
+                navigate('/dashboard');
+            } else {
+                throw new Error('Invalid credentials');
+            }
+        } catch (error) {
+            ToastifyServices.showError(error.message);
+        }
 
+    };
+    const handleLogin = (e) => {
+        e.preventDefault();
+        try {
+            Login();
+        } catch (error) {
+            console.error('Login failed:', error.message);
         }
     };
+    useEffect(() => {
+        dispatch(setIsLoggedIn(false))
+    }, [])
+    
 
 
     return (
@@ -52,7 +68,7 @@ const Login = () => {
                         <label for="exampleInputPassword1" class="form-label text-white">Password</label>
                         <input placeholder="Password" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} class="form-control" id="exampleInputPassword1" />
                     </div>
-                    <button onClick={onSubmitForm} class="btn btn-dark w-100">Submit</button>
+                    <button onClick={handleLogin} class="btn btn-dark w-100">Submit</button>
                 </form>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -11,6 +11,6 @@ const showSuccess = (message) => {
 
 
 export default {
-    showError, 
+showError, 
     showSuccess
 }
