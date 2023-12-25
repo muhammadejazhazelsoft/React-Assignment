@@ -1,0 +1,11 @@
+
+thead[data-test="table-foot"] {
+    display: none !important;
+  }
+
+thead[data-test="datatable-head"] th {
+    color: rgb(26, 26, 26); 
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  

@@ -3,6 +3,7 @@ import { MDBDataTable } from 'mdbreact';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsersData } from '../../Slice/DataFile';
 import ToastifyServices from '../../Services/ToastifyServices';
+import './DatatablePage.css'
 
 const DatatablePage = () => {
  const dispatch= useDispatch()
@@ -31,19 +32,19 @@ const DatatablePage = () => {
       //   width: 150
       // },
       {
-        label: 'userName',
+        label: 'User Name',
         field: 'userName',
         sort: 'asc',
         width: 200
       },
       {
-        label: 'userEmail',
+        label: 'User Email',
         field: 'userEmail',
         sort: 'asc',
         width: 270
       },
       {
-        label: 'userPassword',
+        label: 'User Password',
         field: 'userPassword',
         sort: 'asc',
         width: 100
