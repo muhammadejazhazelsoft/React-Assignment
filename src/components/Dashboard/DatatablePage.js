@@ -1,13 +1,13 @@
 import React from 'react';
 import { MDBDataTable } from 'mdbreact';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsersData } from '../../Slice/DataFile';
+import { setUsersData } from '../../redux/actions/index';
 import ToastifyServices from '../../Services/ToastifyServices';
 import './DatatablePage.css';
 
 const DatatablePage = ({ handleEdit }) => {
   const dispatch = useDispatch();
-  const UserRegister = useSelector(state => state.UserRegister.UsersData);
+  const UserRegister = useSelector(state => state.UsersData);
 
   const handleDelete = (userId) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this user?');

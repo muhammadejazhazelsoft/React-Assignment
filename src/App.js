@@ -11,8 +11,9 @@ import NotFound from './components/NotFound/NotFound';
 import AuthRoute from './components/AuthRoute';
 function App() {
 
-
-  const isLoggedIn = useSelector(state => state.UserRegister.isLoggedIn);
+  const tasks = useSelector((state) => state.tasks);
+  const isLoggedIn  = useSelector((state) => state.isLoggedIn);
+  // const isLoggedIn = useSelector(state => state.UserRegister.isLoggedIn);
   return (
     <div className="App">
       <BrowserRouter>

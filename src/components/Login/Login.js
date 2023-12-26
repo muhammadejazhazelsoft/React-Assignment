@@ -3,7 +3,8 @@ import './Login.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ToastifyServices from '../../Services/ToastifyServices';
-import { setIsLoggedIn } from '../../Slice/DataFile';
+// import { setIsLoggedIn } from '../../Slice/DataFile';
+import { setIsLoggedIn } from '../../redux/actions/index';
 import { useForm } from 'react-hook-form';
 const Login = () => {
     const [mail, setMail] = useState("")
@@ -16,7 +17,7 @@ const Login = () => {
         reset,
         setValue
     } = useForm();
-    const UserRegister = useSelector(state => state.UserRegister.UsersData);
+    const UserRegister = useSelector(state => state.UsersData);
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -70,9 +71,9 @@ const Login = () => {
             console.error('Login failed:', error.message);
         }
     };
-    useEffect(() => {
-        dispatch(setIsLoggedIn(false))
-    }, [])
+    // useEffect(() => {
+    //     dispatch(setIsLoggedIn(false))
+    // }, [])
 
 
 

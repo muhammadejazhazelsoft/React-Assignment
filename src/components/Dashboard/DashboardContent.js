@@ -3,7 +3,8 @@ import DatatablePage from './DatatablePage';
 import Box from '@mui/material/Box';
 import ToastifyServices from '../../Services/ToastifyServices';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsLoggedIn, setUsersData } from '../../Slice/DataFile';
+// import { setIsLoggedIn, setUsersData } from '../../Slice/DataFile';
+import { setIsLoggedIn, setUsersData } from '../../redux/actions/index';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
 const DashboardContent = () => {
@@ -14,7 +15,7 @@ const DashboardContent = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [editingUserId, setEditingUserId] = useState(null); // To track the user being edited
     const [isEditing, setisEditing] = useState('')
-    const UserRegister = useSelector(state => state.UserRegister.UsersData);
+    const UserRegister = useSelector(state => state.UsersData);
     const dispatch = useDispatch()
 
     const {
