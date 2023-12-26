@@ -8,14 +8,17 @@ import { useSelector } from 'react-redux';
 import PrivateRoute from './components/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
 
+import AuthRoute from './components/AuthRoute';
 function App() {
+
+
   const isLoggedIn = useSelector(state => state.UserRegister.isLoggedIn);
   return (
     <div className="App">
       <BrowserRouter>
         <ToastContainer />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<AuthRoute isLoggedIn={isLoggedIn} element={<Login />} />} />
           <Route path="/dashboard" element={<PrivateRoute Component={Dashboard} isLoggedIn={isLoggedIn} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

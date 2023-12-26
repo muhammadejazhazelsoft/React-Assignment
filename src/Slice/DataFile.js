@@ -8,7 +8,7 @@ const initialState = {
             id: 1,
             userName: "ejaz",
             userEmail: 'ejaz.cs44@gmail.com',
-            userPassword: 'ejazejaz'
+            userPassword: 'ejazejaz',
         },
         {
             id: 2,

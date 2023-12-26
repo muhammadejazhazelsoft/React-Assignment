@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // This uses localStorage; if you want to use other storage, they are available too.
-import UserRegister from '../features/DataFile'
+import UserRegister from '../Slice/DataFile'
 
 // Persist config
 const persistConfig = {

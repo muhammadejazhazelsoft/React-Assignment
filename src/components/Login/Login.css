@@ -24,6 +24,7 @@ h1{
     font-size: 3rem;
     letter-spacing: 3px;
 }
+
 .FormDiv h1 {
     text-align: center;
     font-size: 3rem;
@@ -51,3 +52,25 @@ h1{
     background-repeat: no-repeat;
     width: 100%;
 }
+
+
+@media (max-width: 767px) {
+    .FormDiv {
+        max-width: 300px;
+        width: 100%;
+        margin: auto;
+        border: 1px solid rgb(179, 177, 177);
+        padding: 25px;
+        border-radius: 8px;
+        width: 400px;
+        background-color: #3990FF;
+        border-radius: 10px;
+        box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.42);
+    
+    }
+    .FormDiv h1 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+}
+

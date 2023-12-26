@@ -1,13 +1,21 @@
-
 thead[data-test="table-foot"] {
-    display: none !important;
-  }
+  display: none !important;
+}
 
 thead[data-test="datatable-head"] th {
-    color: rgb(26, 26, 26); 
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    border: 1px solid #e7e7e7 !important;
-    background-color: rgb(228, 228, 228);
-  }
-  
+  color: rgb(26, 26, 26);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border: 1px solid #e7e7e7 !important;
+  background-color: rgb(228, 228, 228);
+}
+
+.Table-Content {
+  width: 100%;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

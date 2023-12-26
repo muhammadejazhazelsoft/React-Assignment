@@ -3,59 +3,76 @@ import { MDBDataTable } from 'mdbreact';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsersData } from '../../Slice/DataFile';
 import ToastifyServices from '../../Services/ToastifyServices';
-import './DatatablePage.css'
+import './DatatablePage.css';
 
-const DatatablePage = () => {
- const dispatch= useDispatch()
+const DatatablePage = ({ handleEdit }) => {
+  const dispatch = useDispatch();
   const UserRegister = useSelector(state => state.UserRegister.UsersData);
+
+  const handleDelete = (userId) => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+    
+    if (confirmDelete) {
+      const filterUsers = UserRegister.filter((user) => {
+        return user.id !== userId;
+      });
+      dispatch(setUsersData(filterUsers));
+      ToastifyServices.showSuccess('User Deleted Successfully');
+    } else {
+      ToastifyServices.showError('Delete action canceled');
+    }
+  };
+  
+
+  const handleEditUser = (userId) => {
+    handleEdit(userId)
+    console.log(`Edit user with ID: ${userId}`);
+  };
+
   const rows = UserRegister.map(user => {
     return {
       ...user,
-      deleteButton: <button className='btn btn-danger w-100' onClick={() => handleDelete(user.id)}>Delete</button>
+      deleteButton: <button className='btn btn-danger w-50' onClick={() => handleDelete(user.id)}>Delete</button>,
+      editButton: <button className='btn btn-primary w-50 ms-2' onClick={() => handleEditUser(user.id)}>Edit</button>,
     };
   });
 
-  const handleDelete = (userId) => {
-    const filterUsers = UserRegister.filter((user) => {
-      return user.id !== userId
-    })
-    dispatch(setUsersData(filterUsers))
-    ToastifyServices.showSuccess('User Deleted Successfully')
-  };
-
   const data = {
     columns: [
-      // {
-      //   label: 'id',
-      //   field: 'id',
-      //   sort: 'asc',
-      //   width: 150
-      // },
       {
         label: 'User Name',
         field: 'userName',
         sort: 'asc',
-        width: 200
+        width: 200,
       },
       {
         label: 'User Email',
         field: 'userEmail',
         sort: 'asc',
-        width: 270
+        width: 270,
       },
       {
         label: 'User Password',
         field: 'userPassword',
         sort: 'asc',
-        width: 100
+        width: 100,
       },
       {
-        label: 'Action',
-        field: 'deleteButton',
-        width: 100
-      }
+        label: 'Actions',
+        field: 'actions',
+        width: 200,
+        sort: 'disabled', // Disable sorting for action column
+      },
     ],
-    rows: rows
+    rows: rows.map(row => ({
+      ...row,
+      actions: (
+        <div className='d-flex justify-content-between'>
+          {row.deleteButton}
+          {row.editButton}
+        </div>
+      ),
+    })),
   };
 
   return (
@@ -66,6 +83,6 @@ const DatatablePage = () => {
       data={data}
     />
   );
-}
+};
 
 export default DatatablePage;
