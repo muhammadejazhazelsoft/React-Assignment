@@ -16,8 +16,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ onItemClick }) => {
   const dispatch = useDispatch()
- const navigate= useNavigate()
-  const handleLogout  = () => {
+  const navigate = useNavigate()
+  const handleLogout = () => {
     localStorage.removeItem('userData');
     dispatch(logout());
   }
@@ -35,9 +35,9 @@ const Sidebar = ({ onItemClick }) => {
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem onClick={() => onItemClick('dashboard')} icon="th-large">Dashboard</CDBSidebarMenuItem>
-          <CDBSidebarMenuItem onClick={() =>onItemClick('profile')} icon="sticky-note">Profile</CDBSidebarMenuItem>
-          <CDBSidebarMenuItem onClick={handleLogout } icon="chart-line" iconType="solid">
+          <CDBSidebarMenuItem onClick={() => navigate('/dashboard')} icon="th-large">Dashboard</CDBSidebarMenuItem>
+          <CDBSidebarMenuItem onClick={() => navigate('/profile')} icon="sticky-note">Profile</CDBSidebarMenuItem>
+          <CDBSidebarMenuItem onClick={handleLogout} icon="chart-line" iconType="solid">
             Logout
           </CDBSidebarMenuItem>
         </CDBSidebarMenu>

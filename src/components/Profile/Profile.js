@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import './Dashboard.css'
-import Sidebar from './SideBar';
-import DashboardContent from './DashboardContent';
-import ProfileContent from './ProfileContent';
-const Dashboard = () => {
+import Sidebar from '../Dashboard/SideBar';
+import ProfileContent from '../Dashboard/ProfileContent';
+const Profile = () => {
     const [selectedComponent, setSelectedComponent] = useState('dashboard');
     const handleSidebarItemClick = (componentName) => {
         setSelectedComponent(componentName);
@@ -26,11 +24,10 @@ const Dashboard = () => {
             </div>
             <div className="main-content">
                 {/* {renderContent()} */}
-                <DashboardContent />
+                <ProfileContent />
             </div>
-            {/* <button onClick={handleResetButtonClick}>remove</button> */}
         </div>
     )
 }
 
-export default Dashboard
+export default Profile
