@@ -1,29 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Login.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ToastifyServices from '../../Services/ToastifyServices';
-// import { setIsLoggedIn } from '../../Slice/DataFile';
 import { setIsLoggedIn } from '../../redux/actions/index';
 import { useForm } from 'react-hook-form';
 const Login = () => {
-    const [mail, setMail] = useState("")
-    const [password, setPassword] = useState("")
     const {
         register,
         handleSubmit,
         formState: { errors },
-        getValues,
-        reset,
-        setValue
     } = useForm();
     const UserRegister = useSelector(state => state.UsersData);
-
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const onSubmit = (data) => {
         const foundUser = UserRegister.find((user) => user.userEmail.toLowerCase() === data.email.toLowerCase() && data.password === user.userPassword);
-        console.log('this is user', foundUser, data.password);
         if (foundUser) {
             localStorage.setItem('userData', JSON.stringify(foundUser));
             dispatch(setIsLoggedIn(true));
@@ -33,50 +25,6 @@ const Login = () => {
             ToastifyServices.showError("Invalid credentials");
         }
     };
-    // const Login = (e) => {
-
-    //     if (!password || !mail) {
-    //         ToastifyServices.showError("Both fields are required!")
-    //         return;
-    //     }
-    //     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    //     if (!emailRegex.test(mail)) {
-    //         ToastifyServices.showError("Please enter a valid email address.")
-    //         return;
-    //     }
-
-    //     try {
-    //         const foundUser = UserRegister.find((user) => {
-    //             return mail.toLowerCase() === user.userEmail.toLowerCase() && password === user.userPassword;
-    //         });
-
-    //         if (foundUser) {
-    //             localStorage.setItem('userData', JSON.stringify(foundUser));
-    //             dispatch(setIsLoggedIn(true));
-    //             ToastifyServices.showSuccess('Successfully Login');
-    //             navigate('/dashboard');
-    //         } else {
-    //             throw new Error('Invalid credentials');
-    //         }
-    //     } catch (error) {
-    //         ToastifyServices.showError(error.message);
-    //     }
-
-    // };
-    const handleLogin = (e) => {
-        e.preventDefault();
-        try {
-            Login();
-        } catch (error) {
-            console.error('Login failed:', error.message);
-        }
-    };
-    // useEffect(() => {
-    //     dispatch(setIsLoggedIn(false))
-    // }, [])
-
-
-
     return (
         <div>
             <div className="LoginContainer">

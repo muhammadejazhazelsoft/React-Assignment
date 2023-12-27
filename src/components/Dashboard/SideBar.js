@@ -5,12 +5,8 @@ import {
   CDBSidebarMenuItem,
   CDBSidebarContent,
   CDBSidebarMenu,
-  CDBSidebarSubMenu,
-  CDBSidebarFooter,
-  CDBBadge,
-  CDBContainer,
 } from 'cdbreact';
-import { logout, setIsLoggedIn } from '../../redux/actions/index';
+import { logout } from '../../redux/actions/index';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 

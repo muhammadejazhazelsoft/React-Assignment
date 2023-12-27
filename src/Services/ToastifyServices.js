@@ -11,6 +11,7 @@ const showSuccess = (message) => {
 
 
 export default {
-showError, 
+    showError,
     showSuccess
-}
+  };
+  
