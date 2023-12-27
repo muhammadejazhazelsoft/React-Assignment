@@ -3,24 +3,24 @@
 
 const initialState = {
     UsersData: [
-        {
-            id: 1,
-            userName: "ejaz",
-            userEmail: 'ejaz.cs44@gmail.com',
-            userPassword: 'ejazejaz',
-        },
-        {
-            id: 2,
-            userName: "usman",
-            userEmail: 'usman.cs44@gmail.com',
-            userPassword: 'ejazejaz'
-        },
-        {
-            id: 3,
-            userName: "faizan",
-            userEmail: 'faizan.cs44@gmail.com',
-            userPassword: 'ejazejaz'
-        },
+        // {
+        //     id: 1,
+        //     userName: "ejaz",
+        //     userEmail: 'ejaz.cs44@gmail.com',
+        //     userPassword: 'ejazejaz',
+        // },
+        // {
+        //     id: 2,
+        //     userName: "usman",
+        //     userEmail: 'usman.cs44@gmail.com',
+        //     userPassword: 'ejazejaz'
+        // },
+        // {
+        //     id: 3,
+        //     userName: "faizan",
+        //     userEmail: 'faizan.cs44@gmail.com',
+        //     userPassword: 'ejazejaz'
+        // },
     ],
     isLoggedIn: false
 };

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUsersData } from '../../redux/actions/index';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 const DashboardContent = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [editingUserId, setEditingUserId] = useState(null);
@@ -22,39 +23,82 @@ const DashboardContent = () => {
         setValue
     } = useForm();
 
-    const onSubmit = (data) => {
+
+    const updateUserApi = async (userId, updatedUserData) => {
+        try {
+            const response = await axios.put(`http://localhost:3001/userData/${userId}`, updatedUserData);
+
+            if (response.status === 200) {
+                console.log('User updated successfully:', response.data);
+            } else {
+                throw new Error('Failed to update user');
+            }
+        } catch (error) {
+            console.error('Error updating user:', error);
+        }
+    };
+
+
+    const addUserApi = async (newUser) => {
+        try {
+            const response = await axios.post('http://localhost:3001/userData', newUser);
+
+            if (response.status === 201) {
+                console.log('User added successfully:', response.data);
+                dispatch(setUsersData([...UserRegister, newUser]));
+                ToastifyServices.showSuccess('User Added Successfully')
+                setModalOpen(false);
+                reset();
+            } else {
+                throw new Error('Failed to add user');
+            }
+        } catch (error) {
+            console.error('Error adding user:', error);
+        }
+    };
+
+
+
+
+
+    const onSubmit = async (data) => {
         if (isEditing) {
-            const updatedUsers = UserRegister.map((user) => {
-                if (user.id === editingUserId) {
-                    return {
-                        ...user,
-                        userName: data.name,
-                        userEmail: data.email,
-                        userPassword: data.password,
-                    };
-                }
-                return user;
-            });
-            dispatch(setUsersData(updatedUsers));
-            ToastifyServices.showSuccess('User Updated Successfully');
-            setModalOpen(false);
-            setisEditing(false)
-            setEditingUserId('');
-            reset()
+            try {
+                await updateUserApi(editingUserId, {
+                    userName: data.name,
+                    userEmail: data.email,
+                    userPassword: data.password,
+                });
+                const updatedUsers = UserRegister.map((user) => {
+                    if (user.id === editingUserId) {
+                        return {
+                            ...user,
+                            userName: data.name,
+                            userEmail: data.email,
+                            userPassword: data.password,
+                        };
+                    }
+                    return user;
+                });
+                dispatch(setUsersData(updatedUsers));
+                ToastifyServices.showSuccess('User Updated Successfully');
+                setModalOpen(false);
+                setisEditing(false);
+                setEditingUserId('');
+                reset();
+            } catch (error) {
+                ToastifyServices.showError('Failed to update user');
+                console.error('Error updating user:', error);
+            }
         }
         else {
-
             const newUser = {
                 id: uuidv4(),
                 userName: data.name,
                 userEmail: data.email,
                 userPassword: data.password,
             };
-            dispatch(setUsersData([...UserRegister, newUser]));
-            ToastifyServices.showSuccess('User Added Successfully')
-            setModalOpen(false);
-
-            reset();
+            addUserApi(newUser)
         }
 
     };
@@ -68,7 +112,6 @@ const DashboardContent = () => {
         setisEditing(true);
         setModalOpen(true);
         const foundUser = UserRegister.find((user) => user.id === userId);
-        console.log('this is user', foundUser);
         setEditingUserId(userId);
 
         setValue('name', foundUser.userName);
@@ -81,10 +124,8 @@ const DashboardContent = () => {
     return (
         <div className='dashboard-content'>
             <h1 className='d-flex justify-content-center RegisterUserText'> REGISTERED USERS TABLE</h1>
-
             <button className='btn btn-primary addNewUser' onClick={() => { setModalOpen(true) }}> Add New User</button>
             <div className="Table-Content">
-
                 <DatatablePage handleEdit={handleEdit} />
             </div>
             {

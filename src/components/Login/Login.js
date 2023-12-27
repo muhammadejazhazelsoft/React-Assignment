@@ -1,17 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Login.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ToastifyServices from '../../Services/ToastifyServices';
 import { setIsLoggedIn } from '../../redux/actions/index';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 const Login = () => {
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const UserRegister = useSelector(state => state.UsersData);
+    // const UserRegister = useSelector(state => state.UsersData);
+    const [UserRegister, setUserRegister] = useState([])
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/userData');
+            if (response.status !== 200) {
+                throw new Error('Failed to fetch');
+            }
+            const bodyData = response.data;
+            setUserRegister(bodyData);
+            // dispatch(setUsersData(bodyData));
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const onSubmit = (data) => {

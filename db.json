@@ -1,0 +1,46 @@
+{
+  "userData": [
+    {
+      "userName": "ejaz",
+      "userEmail": "ejaz@gmail.com",
+      "userPassword": "ejazejaz",
+      "id": "81135d98-1287-49a0-bbbc-5ef5082d9327"
+    },
+    {
+      "userName": "umar",
+      "userEmail": "umar@gmail.com",
+      "userPassword": "ejazejaz",
+      "id": "01de4173-cd20-41d9-af8b-fc1c8377aaab"
+    },
+    {
+      "userName": "usman",
+      "userEmail": "usman@gmail.com",
+      "userPassword": "ejazejaz",
+      "id": "c082a9b2-1ab6-4259-a569-94cf47f972ac"
+    },
+    {
+      "id": "7507d6c1-3b6b-4946-a64d-ea91391ef3f8",
+      "userName": "mohsin",
+      "userEmail": "mohsin@gmail.com",
+      "userPassword": "ejazejaz"
+    },
+    {
+      "userName": "faraz",
+      "userEmail": "faraz@gmail.com",
+      "userPassword": "ejazejaz",
+      "id": "fa47bfae-5790-4e3c-8758-a719ee131b7b"
+    },
+    {
+      "id": "778d7118-37cd-4564-aa92-7e58b50b16a8",
+      "userName": "mohsin",
+      "userEmail": "mohsin@gmail.com",
+      "userPassword": "ejazejaz"
+    },
+    {
+      "userName": "farhan123",
+      "userEmail": "farhan@gmail.com",
+      "userPassword": "ejazejaz",
+      "id": "02b36733-0a79-4a97-947c-5ea68b58308a"
+    }
+  ]
+}
