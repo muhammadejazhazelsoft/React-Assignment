@@ -140,7 +140,15 @@ const DashboardContent = () => {
                                     <input
                                         placeholder='User Name'
                                         type="text"
-                                        {...register('name', { required: 'Name is required' })}
+                                        {
+                                            ...register('name', {
+                                            required: 'Name is required',
+                                            minLength: {
+                                                value: 3, // Adjust this value to your desired minimum length
+                                                message: 'Name must be at least 3 characters long' // Adjust the error message accordingly
+                                            }
+                                            })
+                                        }
                                         className="form-control"
                                         id="name"
                                     />
@@ -169,7 +177,15 @@ const DashboardContent = () => {
                                     <input
                                         placeholder='Password'
                                         type="password"
-                                        {...register('password', { required: 'Password is required' })}
+                                        {
+                                            ...register('password', {
+                                            required: 'Password is required',
+                                            minLength: {
+                                                value: 8,
+                                                message: 'Password must be at least 8 characters long'
+                                            }
+                                            })
+                                        }
                                         className="form-control"
                                         id="password"
                                     />

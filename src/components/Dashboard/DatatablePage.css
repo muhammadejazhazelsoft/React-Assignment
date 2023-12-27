@@ -7,7 +7,7 @@ thead[data-test="datatable-head"] th {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   border: 1px solid #e7e7e7 !important;
-  background-color: rgb(228, 228, 228);
+  background-color: #F0F0F0
 }
 
 .Table-Content {

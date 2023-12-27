@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { MDBDataTable } from 'mdbreact';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUsersData } from '../../redux/actions/index';
@@ -36,35 +36,21 @@ const DatatablePage = ({ handleEdit }) => {
   
       if (response.status === 200) {
         console.log('User deleted successfully');
-        // Optionally, handle any necessary updates to your local state or UI after deleting the user
       } else {
         throw new Error('Failed to delete user');
       }
     } catch (error) {
       console.error('Error deleting user:', error);
-      // Optionally, show an error message or handle the error in your UI
     }
   };
-  // const handleDelete = (userId) => {
-  //   const confirmDelete = window.confirm('Are you sure you want to delete this user?');
 
-  //   if (confirmDelete) {
-  //     const filterUsers = UserRegister.filter((user) => {
-  //       return user.id !== userId;
-  //     });
-  //     dispatch(setUsersData(filterUsers));
-  //     ToastifyServices.showSuccess('User Deleted Successfully');
-  //   } else {
-  //     ToastifyServices.showError('Delete action canceled');
-  //   }
-  // };
   const handleDelete = async (userId) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this user?');
   
     if (confirmDelete) {
       try {
         await deleteUserApi(userId);
-  
+
         // If the deletion is successful, update the UI or state
         const filterUsers = UserRegister.filter((user) => user.id !== userId);
         dispatch(setUsersData(filterUsers));
@@ -117,6 +103,7 @@ const DatatablePage = ({ handleEdit }) => {
         field: 'userPassword',
         sort: 'asc',
         width: 100,
+        sort: 'disabled', // Disable sorting for action column
       },
       {
         label: 'Actions',

@@ -9,6 +9,7 @@ import {
 import { logout } from '../../redux/actions/index';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import ToastifyServices from '../../Services/ToastifyServices';
 
 const Sidebar = ({ onItemClick }) => {
   const dispatch = useDispatch()
@@ -16,6 +17,7 @@ const Sidebar = ({ onItemClick }) => {
   const handleLogout = () => {
     localStorage.removeItem('userData');
     dispatch(logout());
+    ToastifyServices.showSuccess('Successfully Logout');
   }
   return (
     <CDBSidebar textColor="#333" backgroundColor="#f0f0f0">

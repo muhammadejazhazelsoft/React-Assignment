@@ -8,7 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
 import AuthRoute from './components/AuthRoute';
 import { setIsLoggedIn } from './redux/actions';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Profile from './components/Profile/Profile';
 function App() {
   const dispatch = useDispatch();
