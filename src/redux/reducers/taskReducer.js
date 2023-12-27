@@ -27,7 +27,6 @@ const initialState = {
 
 
 const taskReducer = (state = initialState, action) => {
-    console.log('this is me redux', action.payload)
     switch (action.type) {
         case 'login':
             return {

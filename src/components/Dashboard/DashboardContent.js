@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import DatatablePage from './DatatablePage';
-import Box from '@mui/material/Box';
 import ToastifyServices from '../../Services/ToastifyServices';
 import { useDispatch, useSelector } from 'react-redux';
 // import { setIsLoggedIn, setUsersData } from '../../Slice/DataFile';
-import {  setUsersData } from '../../redux/actions/index';
+import { setUsersData } from '../../redux/actions/index';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
 const DashboardContent = () => {
     const [modalOpen, setModalOpen] = useState(false)
-    const [editingUserId, setEditingUserId] = useState(null); 
+    const [editingUserId, setEditingUserId] = useState(null);
     const [isEditing, setisEditing] = useState('')
     const UserRegister = useSelector(state => state.UsersData);
     const dispatch = useDispatch()
@@ -25,7 +24,6 @@ const DashboardContent = () => {
 
     const onSubmit = (data) => {
         if (isEditing) {
-            console.log('this is edit portion')
             const updatedUsers = UserRegister.map((user) => {
                 if (user.id === editingUserId) {
                     return {
@@ -37,7 +35,6 @@ const DashboardContent = () => {
                 }
                 return user;
             });
-
             dispatch(setUsersData(updatedUsers));
             ToastifyServices.showSuccess('User Updated Successfully');
             setModalOpen(false);
@@ -93,21 +90,8 @@ const DashboardContent = () => {
             {
                 modalOpen && (
                     <div className='ModalForm'
-                        style={{
-                            position: 'fixed',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                            zIndex: 9999,
-                            transition: 'all 0.3s ease-in-out'
-                        }}
                     >
-                        <Box sx={{ display: 'flex' }}>
+                        <div >
                             <form className='FormDiv ModalFOrm' onSubmit={handleSubmit(onSubmit)}>
                                 <h1>Add User</h1>
                                 <div className="mb-2">
@@ -137,7 +121,7 @@ const DashboardContent = () => {
                                         id="email"
                                     />
                                     {errors.email && <p className='errorText'>{errors.email.message}</p>}
-                                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                                    <div id="emailHelp" className="form-text text-white">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div className="mb-2">
                                     <label htmlFor="password" className="form-label text-white">Password</label>
@@ -180,7 +164,7 @@ const DashboardContent = () => {
                                     </button>
                                 </div>
                             </form>
-                        </Box>
+                        </div>
                     </div>
                 )
             }

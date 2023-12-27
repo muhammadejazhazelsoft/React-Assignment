@@ -23,6 +23,7 @@ const Login = () => {
             navigate('/dashboard');
         } else {
             ToastifyServices.showError("Invalid credentials");
+            // setValue('password', foundUser.userPassword);
         }
     };
     return (
@@ -46,7 +47,7 @@ const Login = () => {
                             id="email"
                         />
                         {errors.email && <p className='errorText'>{errors.email.message}</p>}
-                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                        <div id="emailHelp" className="form-text text-white">We'll never share your email with anyone else.</div>
                     </div>
                     <div className="mb-2">
                         <label htmlFor="password" className="form-label text-white">Password</label>
