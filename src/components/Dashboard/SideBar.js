@@ -17,6 +17,7 @@ const Sidebar = ({ onItemClick }) => {
   const handleLogout = () => {
     localStorage.removeItem('userData');
     dispatch(logout());
+    localStorage.removeItem('url');
     ToastifyServices.showSuccess('Successfully Logout');
   }
   return (
@@ -33,8 +34,17 @@ const Sidebar = ({ onItemClick }) => {
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem onClick={() => navigate('/dashboard')} icon="th-large">Dashboard</CDBSidebarMenuItem>
-          <CDBSidebarMenuItem onClick={() => navigate('/profile')} icon="sticky-note">Profile</CDBSidebarMenuItem>
+          <CDBSidebarMenuItem onClick={() => {
+            localStorage.setItem('url', '/dashboard')
+            navigate('/dashboard')
+          }} icon="th-large">Dashboard</CDBSidebarMenuItem>
+          <CDBSidebarMenuItem onClick={() => {
+            localStorage.setItem('url', '/profile'); // Update the URL here
+            navigate('/profile');
+          }} icon="sticky-note">
+            Profile
+          </CDBSidebarMenuItem>
+
           <CDBSidebarMenuItem onClick={handleLogout} icon="chart-line" iconType="solid">
             Logout
           </CDBSidebarMenuItem>

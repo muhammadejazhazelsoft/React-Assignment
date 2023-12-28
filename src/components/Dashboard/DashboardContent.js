@@ -12,18 +12,18 @@ const DashboardContent = () => {
     const [isEditing, setisEditing] = useState('')
     const UserRegister = useSelector(state => state.UsersData);
     const dispatch = useDispatch()
-    const {register,handleSubmit,formState: { errors },getValues,reset,setValue} = useForm();
+    const { register, handleSubmit, formState: { errors }, getValues, reset, setValue } = useForm();
     const rows = UserRegister.map(user => {
         return {
-        ...user,
-        deleteButton: <button className='btn btn-danger w-50' onClick={() => handleDelete(user.id)}>Delete</button>,
-        editButton: <button className='btn btn-primary w-50 ms-2' onClick={() => handleEdit(user.id)}>Edit</button>,
+            ...user,
+            deleteButton: <button className='btn btn-danger w-50' onClick={() => handleDelete(user.id)}>Delete</button>,
+            editButton: <button className='btn btn-primary w-50 ms-2' onClick={() => handleEdit(user.id)}>Edit</button>,
         };
     });
 
     const addUser = async (newUser) => {
         try {
-            const response = await HTTPServices.AddUser(newUser); // Call AddUser from HTTPServices
+            const response = await HTTPServices.AddUser(newUser);
             if (response.status === 201) {
                 console.log('User added successfully:', response.data);
                 dispatch(setUsersData([...UserRegister, newUser]));
@@ -38,15 +38,16 @@ const DashboardContent = () => {
     };
     const handleDelete = async (userId) => {
         const confirmed = window.confirm('Are you sure you want to delete this user?');
-
         if (confirmed) {
-            const isDeleted = await HTTPServices.DeleteUser(userId)
-
-            if (isDeleted) {
-                const filterUsers = UserRegister.filter((user) => user.id !== userId);
-                dispatch(setUsersData(filterUsers));
-                ToastifyServices.showSuccess('User Deleted Successfully');
-            } else {
+            try {
+                const isDeleted = await HTTPServices.DeleteUser(userId)
+                if (isDeleted) {
+                    const filterUsers = UserRegister.filter((user) => user.id !== userId);
+                    dispatch(setUsersData(filterUsers));
+                    ToastifyServices.showSuccess('User Deleted Successfully');
+                }
+            }
+            catch {
                 ToastifyServices.showError('Failed to delete user');
             }
         } else {
@@ -56,17 +57,17 @@ const DashboardContent = () => {
     const onSubmit = async (data) => {
         if (isEditing) {
             try {
-                const updateSuccessful = await HTTPServices.UpdateUser(editingUserId, {
+                const updateUser = {
                     userName: data.name,
                     userEmail: data.email,
                     userPassword: data.password,
-                });
+                }
+                const updateSuccessful = await HTTPServices.UpdateUser(editingUserId, updateUser);
 
                 if (updateSuccessful) {
                     const updatedUsers = UserRegister.map((user) => (
                         user.id === editingUserId ? { ...user, userName: data.name, userEmail: data.email, userPassword: data.password } : user
                     ));
-
                     dispatch(setUsersData(updatedUsers));
                     ToastifyServices.showSuccess('User Updated Successfully');
                     setModalOpen(false);
@@ -122,8 +123,8 @@ const DashboardContent = () => {
 
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        fetchData()
+    }, [])
 
 
 
