@@ -1,88 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MDBDataTable } from 'mdbreact';
-import { useDispatch, useSelector } from 'react-redux';
-import { setUsersData } from '../../redux/actions/index';
-import ToastifyServices from '../../Services/ToastifyServices';
+
 import './DatatablePage.css';
-import axios from 'axios';
 
-const DatatablePage = ({ handleEdit }) => {
-  const dispatch = useDispatch();
-  const UserRegister = useSelector(state => state.UsersData);
-  // const [UserRegister, setUserRegister] = useState([])
-
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:3001/userData');
-      if (response.status !== 200) {
-        throw new Error('Failed to fetch');
-      }
-      const bodyData = response.data;
-      // setUserRegister(bodyData);
-      dispatch(setUsersData(bodyData));
-
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-
- 
-
-  const deleteUserApi = async (userId) => {
-    try {
-      const response = await axios.delete(`http://localhost:3001/userData/${userId}`);
-  
-      if (response.status === 200) {
-        console.log('User deleted successfully');
-      } else {
-        throw new Error('Failed to delete user');
-      }
-    } catch (error) {
-      console.error('Error deleting user:', error);
-    }
-  };
-
-  const handleDelete = async (userId) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
-  
-    if (confirmDelete) {
-      try {
-        await deleteUserApi(userId);
-
-        // If the deletion is successful, update the UI or state
-        const filterUsers = UserRegister.filter((user) => user.id !== userId);
-        dispatch(setUsersData(filterUsers));
-        ToastifyServices.showSuccess('User Deleted Successfully');
-      } catch (error) {
-        ToastifyServices.showError('Failed to delete user');
-        console.error('Error deleting user:', error);
-      }
-    } else {
-      ToastifyServices.showError('Delete action canceled');
-    }
-  };
-  
-  
-
-
-  const handleEditUser = (userId) => {
-    handleEdit(userId)
-    console.log(`Edit user with ID: ${userId}`);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const rows = UserRegister.map(user => {
-    return {
-      ...user,
-      deleteButton: <button className='btn btn-danger w-50' onClick={() => handleDelete(user.id)}>Delete</button>,
-      editButton: <button className='btn btn-primary w-50 ms-2' onClick={() => handleEditUser(user.id)}>Edit</button>,
-    };
-  });
+const DatatablePage = ({rows}) => {
 
   const data = {
     columns: [
@@ -101,15 +22,14 @@ const DatatablePage = ({ handleEdit }) => {
       {
         label: 'User Password',
         field: 'userPassword',
-        sort: 'asc',
         width: 100,
-        sort: 'disabled', // Disable sorting for action column
+        sort: 'disabled',
       },
       {
         label: 'Actions',
         field: 'actions',
         width: 200,
-        sort: 'disabled', // Disable sorting for action column
+        sort: 'disabled',
       },
     ],
     rows: rows.map(row => ({

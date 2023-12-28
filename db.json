@@ -1,76 +1,34 @@
 {
   "userData": [
     {
-      "userName": "umar",
-      "userEmail": "umar@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "01de4173-cd20-41d9-af8b-fc1c8377aaab"
-    },
-    {
-      "userName": "usman",
-      "userEmail": "usman@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "c082a9b2-1ab6-4259-a569-94cf47f972ac"
-    },
-    {
-      "id": "7507d6c1-3b6b-4946-a64d-ea91391ef3f8",
-      "userName": "mohsin",
-      "userEmail": "mohsin@gmail.com",
-      "userPassword": "ejazejaz"
-    },
-    {
-      "userName": "faraz",
-      "userEmail": "faraz@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "fa47bfae-5790-4e3c-8758-a719ee131b7b"
-    },
-    {
-      "userName": "mohsin",
-      "userEmail": "mohsin@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "778d7118-37cd-4564-aa92-7e58b50b16a8"
-    },
-    {
-      "userName": "farhan",
-      "userEmail": "farhan@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "02b36733-0a79-4a97-947c-5ea68b58308a"
-    },
-    {
-      "userName": "aslam",
-      "userEmail": "aslam@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "22c76961-8e45-455c-883c-b9292b4c045a"
-    },
-    {
-      "userName": "zaman",
-      "userEmail": "ejaz@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "e57770ea-4efd-4f98-9970-5d88d482828f"
-    },
-    {
-      "id": "b206652a-1b62-47c3-bcff-fb8cb8ffece2",
-      "userName": "noor",
-      "userEmail": "noor@gmail.com",
-      "userPassword": "ejazejaz"
-    },
-    {
-      "userName": "aftab",
-      "userEmail": "aftab@gmail.com",
-      "userPassword": "ejazejaz",
-      "id": "6da956d1-e774-48c8-9df7-a289b235ad2d"
-    },
-    {
-      "id": "151e29dd-083c-4f95-9b4e-1be76a4d233b",
+      "id": "04f7ddaf-6c74-4f94-a9c4-b3c3ce769cf8",
       "userName": "faizan",
       "userEmail": "faizan@gmail.com",
       "userPassword": "ejazejaz"
     },
     {
-      "userName": "umar",
+      "userName": "umar ali",
       "userEmail": "umar@gmail.com",
       "userPassword": "ejazejaz",
-      "id": "589894b9-a12f-45fa-bf0f-4e11bef9e4cb"
+      "id": "6b21eac0-155a-4487-84a1-cde1cefc4535"
+    },
+    {
+      "id": "b1e2c40d-b9b8-431a-844c-1213d4adccca",
+      "userName": "noman",
+      "userEmail": "noman@gmail.com",
+      "userPassword": "ejazejaz"
+    },
+    {
+      "id": "978800a2-e817-4ab5-a253-c3943556fed1",
+      "userName": "usman",
+      "userEmail": "usman@gmail.com",
+      "userPassword": "ejazejaz"
+    },
+    {
+      "id": "b59e5667-4eca-4bc7-abf4-d21b25bba915",
+      "userName": "admin",
+      "userEmail": "admin@gmail.com",
+      "userPassword": "ejazejaz"
     }
   ]
 }

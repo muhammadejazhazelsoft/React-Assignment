@@ -3,8 +3,6 @@ import Sidebar from '../SideBar'
 
 const MainDashboard = ({ Component }) => {
     return (
-
-
         <div className='LandingPage'>
             <div className="SideBar">
                 <Sidebar />
@@ -15,5 +13,4 @@ const MainDashboard = ({ Component }) => {
         </div>
     )
 }
-
 export default MainDashboard

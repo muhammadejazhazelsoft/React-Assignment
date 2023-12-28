@@ -13,12 +13,12 @@ import Profile from './components/Profile/Profile';
 function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  useEffect(() => {
+    useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('userData'));
     if (userData) {
       dispatch(setIsLoggedIn(true));
     }
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="App">
@@ -26,10 +26,11 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route path="/" element={<AuthRoute isLoggedIn={isLoggedIn} element={<Login />} />} />
-          <Route path="/dashboard" element={<PrivateRoute Component={Dashboard} isLoggedIn={isLoggedIn} />} />
           <Route path="/profile" element={<PrivateRoute Component={Profile} isLoggedIn={isLoggedIn} />} />
+          <Route path="/dashboard" element={<PrivateRoute Component={Dashboard} isLoggedIn={isLoggedIn} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+
       </BrowserRouter>
     </div>
   );

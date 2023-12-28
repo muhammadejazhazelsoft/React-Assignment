@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import ToastifyServices from '../../Services/ToastifyServices';
 import { setIsLoggedIn } from '../../redux/actions/index';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import HTTPServices from '../../Services/HTTPServices';
 const Login = () => {
     const {
         register,
@@ -16,7 +16,7 @@ const Login = () => {
     const [UserRegister, setUserRegister] = useState([])
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/userData');
+            const response = await HTTPServices.GetUsers();
             if (response.status !== 200) {
                 throw new Error('Failed to fetch');
             }
