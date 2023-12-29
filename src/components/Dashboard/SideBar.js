@@ -34,18 +34,18 @@ const Sidebar = ({ onItemClick }) => {
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem onClick={() => {
+          <CDBSidebarMenuItem className='MenuItem' onClick={() => {
             localStorage.setItem('url', '/dashboard')
             navigate('/dashboard')
           }} icon="th-large">Dashboard</CDBSidebarMenuItem>
-          <CDBSidebarMenuItem onClick={() => {
+          <CDBSidebarMenuItem className='MenuItem' onClick={() => {
             localStorage.setItem('url', '/profile'); // Update the URL here
             navigate('/profile');
           }} icon="sticky-note">
             Profile
           </CDBSidebarMenuItem>
 
-          <CDBSidebarMenuItem onClick={handleLogout} icon="chart-line" iconType="solid">
+          <CDBSidebarMenuItem className='MenuItem' onClick={handleLogout} icon="chart-line" iconType="solid">
             Logout
           </CDBSidebarMenuItem>
         </CDBSidebarMenu>

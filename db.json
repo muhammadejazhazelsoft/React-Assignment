@@ -1,10 +1,22 @@
 {
   "userData": [
     {
-      "userName": "usmanali",
+      "userName": "usman",
       "userEmail": "usman@gmail.com",
       "userPassword": "ejazejaz",
       "id": "e29aca80-7777-49a3-b24a-6209e7c8e363"
+    },
+    {
+      "id": "9c63a768-9264-4987-8c78-22a2a5d38d99",
+      "userName": "ejaz",
+      "userEmail": "ejaz@gmail.com",
+      "userPassword": "ejazejaz"
+    },
+    {
+      "id": "d4c54789-f602-4b5d-8f64-4b26f70e6e30",
+      "userName": "usman",
+      "userEmail": "usman@gmail.com",
+      "userPassword": "ejazejaz"
     }
   ]
 }

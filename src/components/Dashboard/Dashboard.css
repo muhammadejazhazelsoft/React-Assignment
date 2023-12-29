@@ -52,6 +52,9 @@
 .hkaJrM {
     width: 100% !important;
 }
+.MenuItem{
+    border-bottom: 1px solid rgb(197, 197, 197);
+}
 
 
 @media (max-width: 1040px) {
